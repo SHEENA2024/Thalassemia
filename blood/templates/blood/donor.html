@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blood Donor Form</title>
+
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(to right, #ffdddd, #ffeaea);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      max-width: 600px;
+      margin: 50px auto;
+    }
+
+    .form-title {
+      text-align: center;
+      color: #b30000;
+      margin-bottom: 30px;
+    }
+
+    .btn-custom {
+      background-color: #b30000;
+      color: white;
+    }
+
+    .btn-custom:hover {
+      background-color: #cc0000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="form-container">
+      <h2 class="form-title">Blood Donor Information Form</h2>
+
+      <!-- CSRF Token for Django -->
+      <input type="hidden" id="csrf_token" value="{% csrf_token %}">
+
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="age" class="form-label">Age</label>
+        <input type="number" class="form-control" id="age" min="18" max="65" placeholder="Enter your age" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="gender" class="form-label">Gender</label>
+        <select class="form-select" id="gender" required>
+          <option value="" disabled selected>Select gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="bloodGroup" class="form-label">Blood Group</label>
+        <select class="form-select" id="bloodGroup" required>
+          <option value="" disabled selected>Select blood group</option>
+          <option>A+</option>
+          <option>A-</option>
+          <option>B+</option>
+          <option>B-</option>
+          <option>AB+</option>
+          <option>AB-</option>
+          <option>O+</option>
+          <option>O-</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="contact" class="form-label">Contact Number</label>
+        <input type="tel" class="form-control" id="contact" placeholder="Enter contact number" pattern="[0-9]{10}" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="address" class="form-label">Full Address</label>
+        <textarea class="form-control" id="address" rows="3" placeholder="Enter your address" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="lastDonation" class="form-label">Last Donation Date</label>
+        <input type="date" class="form-control" id="lastDonation">
+      </div>
+
+      <div class="d-grid">
+        <button onclick="submitForm()" class="btn btn-custom">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function getCSRFToken() {
+  let cookieValue = null;
+  const cookies = document.cookie.split(';');
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i].trim();
+    if (cookie.startsWith('csrftoken=')) {
+      cookieValue = decodeURIComponent(cookie.substring('csrftoken='.length));
+      break;
+    }
+  }
+  return cookieValue;
+}
+
+    function submitForm() {
+      const data = {
+        full_name: document.getElementById("fullName").value,
+        age: document.getElementById("age").value,
+        gender: document.getElementById("gender").value,
+        blood_group: document.getElementById("bloodGroup").value,
+        contact: document.getElementById("contact").value,
+        email: document.getElementById("email").value,
+        address: document.getElementById("address").value,
+        last_donation: document.getElementById("lastDonation").value,
+      };
+
+      fetch("{% url 'donor_submit' %}", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": getCSRFToken(),
+        },
+        body: JSON.stringify(data),
+      })
+      .then(response => {
+        if (response.ok) {
+          alert("Form submitted successfully!");
+        } else {
+          alert("Failed to submit form.");
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

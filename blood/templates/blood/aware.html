@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thalassemia Awareness</title>
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #fdf2f2, #fff5f5);
+    }
+
+    .hero {
+      background-color: #b30000;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 0 0 50px 50px;
+    }
+
+    .section {
+      padding: 40px 20px;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      transition: 0.3s ease-in-out;
+    }
+
+    .counter {
+      font-size: 40px;
+      font-weight: bold;
+      color: #b30000;
+    }
+
+    footer {
+      background-color: #b30000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Thalassemia Awareness</h1>
+    <p>Learn. Share. Save Lives.</p>
+  </div>
+
+  <!-- What is Thalassemia Section -->
+  <div class="section container">
+    <h2 class="text-center mb-4">What is Thalassemia?</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <p>
+          Thalassemia is an inherited blood disorder that causes the body to produce an abnormal form or inadequate amount of hemoglobin.
+          This leads to excessive destruction of red blood cells, which causes anemia. It can be mild or severe and may require frequent blood transfusions.
+        </p>
+        <p>
+          It is passed from parents to children and is more common in certain parts of the world, including South Asia.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <img src="thalasse.png" class="img-fluid rounded" alt="Thalassemia Awareness" height="500" width="500">
+      </div>
+    </div>
+  </div>
+
+  <!-- Counters -->
+  <div class="section bg-light text-center">
+    <div class="row justify-content-center">
+      <div class="col-md-3">
+        <div class="counter" id="cases">0</div>
+        <p>People Affected Worldwide</p>
+      </div>
+      <div class="col-md-3">
+        <div class="counter" id="countries">0</div>
+        <p>Countries Affected</p>
+      </div>
+      <div class="col-md-3">
+        <div class="counter" id="bloodNeeded">0</div>
+        <p>Units of Blood Needed Monthly</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Accordion -->
+  <div class="section container">
+    <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="q1">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1">
+            Can Thalassemia be cured?
+          </button>
+        </h2>
+        <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            A bone marrow or stem cell transplant is the only known cure, but it is not suitable for all patients.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="q2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">
+            How is Thalassemia diagnosed?
+          </button>
+        </h2>
+        <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Through blood tests like CBC and hemoglobin electrophoresis.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="q3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3">
+            Can it be prevented?
+          </button>
+        </h2>
+        <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, with genetic counseling and screening before marriage or pregnancy.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Awareness Tips -->
+  <div class="section bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">How Can You Help?</h2>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <div class="card p-3">
+            <h4>Donate Blood</h4>
+            <p>Your donation can save a Thalassemia patient’s life.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-3">
+            <h4>Spread Awareness</h4>
+            <p>Educate others about screening and genetic testing.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-3">
+            <h4>Volunteer</h4>
+            <p>Join support groups and Thalassemia foundations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Thalassemia Awareness Initiative | Stay Informed. Stay Safe.
+  </footer>
+
+  <!-- Bootstrap JS + Counter Script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Counter animation
+    const animateCounter = (id, target, speed = 30) => {
+      let count = 0;
+      const step = Math.ceil(target / 100);
+      const counter = document.getElementById(id);
+      const interval = setInterval(() => {
+        count += step;
+        if (count >= target) {
+          counter.innerText = target.toLocaleString();
+          clearInterval(interval);
+        } else {
+          counter.innerText = count.toLocaleString();
+        }
+      }, speed);
+    };
+
+    window.onload = () => {
+      animateCounter("cases", 1000000);
+      animateCounter("countries", 60);
+      animateCounter("bloodNeeded", 50000);
+    };
+  </script>
+</body>
+</html>

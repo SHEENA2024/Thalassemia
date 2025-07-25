@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blood Request Form</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      background: linear-gradient(to right, #ffe6e6, #fff0f0);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: 50px auto;
+    }
+
+    .form-title {
+      text-align: center;
+      color: #cc0000;
+      margin-bottom: 30px;
+    }
+
+    .btn-custom {
+      background-color: #cc0000;
+      color: white;
+    }
+
+    .btn-custom:hover {
+      background-color: #b30000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="form-container">
+      <h2 class="form-title">Blood Request Form</h2>
+
+      <form action="{% url 'match_blood_group' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label for="patientName" class="form-label">Patient's Name</label>
+          <input type="text" class="form-control" id="patientName" name="name" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="bloodGroup" class="form-label">Required Blood Group</label>
+          <select class="form-select" id="bloodGroup" name="blood_group" required>
+            <option value="" disabled selected>Select blood group</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="contactNumber" class="form-label">Contact Number</label>
+          <input type="tel" class="form-control" id="contactNumber" name="phone" pattern="[0-9]{10}" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="hospitalAddress" class="form-label">Location</label>
+          <textarea class="form-control" id="hospitalAddress" name="location" rows="3" required></textarea>
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-custom">Submit Request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

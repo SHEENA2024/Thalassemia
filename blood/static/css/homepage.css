@@ -1,0 +1,106 @@
+body {
+  background: linear-gradient(to right, #FFB4B4, #E14434);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+            .main{
+              font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+              font-size: 80px;
+              color: #320A6B;
+              position: absolute;
+              top: 5%;
+              left: 30%;
+            }
+            .mainn{
+               font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+              font-size: 80px;
+              color: #320A6B;
+              position: absolute;
+              top: 15%;
+              left: 45%;
+            }
+            .pic{
+              position: absolute;
+              top:5%;
+              left: 67%;
+      }
+       .contain{
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 800px;
+      height: 900px;
+      animation: float 3s ease-in-out infinite;
+      position: absolute;
+      top: 38%;
+      left: 22%;
+    }
+    .donor{
+        background: #EBD6FB;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 700px;
+      height: 150px;
+      position: absolute;
+      top: 10%;
+      left: 5%;
+    }
+    .request{
+         background: #FFDCDC;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 700px;
+      height: 150px;
+      position: absolute;
+      top: 30%;
+      left: 5%;
+    }
+    .aware{
+       background: #56DFCF;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 700px;
+      height: 170px;
+      position: absolute;
+      top: 52%;
+      left: 5%;
+    }
+    .patient{
+       background: #A4CCD9;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 700px;
+      height: 174px;
+      position: absolute;
+      top: 77%;
+      left: 5%;
+    }
+    #don{
+      font-size: 24px;
+    }
+    #req{
+font-size: 24px;
+    }
+    #awa{
+font-size: 24px;
+    }
+    #pat{
+font-size: 24px;
+    }
+    .map{
+      position: absolute;
+      top: 15%;
+      left: 90%;
+    }
