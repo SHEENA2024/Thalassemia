@@ -1,4 +1,4 @@
-﻿# Thalassemia
+﻿# Thalassemia Support System
 
 A lightweight web application to help Thalassemia patients and donors connect. This project provides:
 
